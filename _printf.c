@@ -10,8 +10,10 @@ int _printf(const char *format, ...)
 	va_list list;
 	char *str;
 	
-	if (!format)
-		return (i);
+	if (format[i] == '%' && !format[i + 1])
+		return (-1);
+	if (!format[i])
+		return (0);
 	va_start(list, format);
 	for (; format[i] != '\0'; i++)
 	{
