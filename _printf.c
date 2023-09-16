@@ -10,8 +10,8 @@ int _printf(const char *format, ...)
 	va_list list;
 	char *str;
 	
-	/*if (!format)
-		exit(98);*/
+	if (!format)
+		exit(98);
 	va_start(list, format);
 	for (; format[i] != '\0'; i++)
 	{
