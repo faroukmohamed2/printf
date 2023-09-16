@@ -26,5 +26,5 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(list);
-	return (0);
+	return (i);
 }
