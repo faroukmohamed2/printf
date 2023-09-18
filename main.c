@@ -9,11 +9,7 @@
  */
 int main(void)
 {
-	char c = 'a';
-	char *d = "farouk";
-	int x = -30;
-	int y = 50;
- /*   int len;
+    int len;
     int len2;
     unsigned int ui;
     void *addr;
@@ -42,8 +38,7 @@ int main(void)
     len2 = printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
     printf("Len:[%d]\n", len2);
-    _printf("Unknown:[%r]\n");
-    printf("Unknown:[%r]\n");*/
-	_printf("f%crouk %s\n%d\n%d", c, d, x, y);
+  /* _printf("Unknown:[%r]\n");
+   printf("Unknown:[%r]\n");*/
     return (0);
 }
