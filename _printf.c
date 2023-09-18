@@ -32,6 +32,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'd')
 			{
 				_putint(va_arg(list, int));
+				va_end(list);
 			}
 			continue;
 		}
