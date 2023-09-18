@@ -11,6 +11,8 @@ int main(void)
 {
 	char c = 'a';
 	char *d = "farouk";
+	int x = -30;
+	int y = 50;
  /*   int len;
     int len2;
     unsigned int ui;
@@ -42,6 +44,6 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
     printf("Unknown:[%r]\n");*/
-	_printf("f%crouk %s\n", c, d);
+	_printf("f%crouk %s\n%d\n%d", c, d, x, y);
     return (0);
 }

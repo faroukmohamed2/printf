@@ -29,6 +29,10 @@ int _printf(const char *format, ...)
 				str = va_arg(list, char *);
 				_putstring(str);
 			}
+			if (format[i + 1] == 'd')
+			{
+				_putint(va_arg(list, int));
+			}
 			continue;
 		}
 		if (format[i - 1] != '%')
