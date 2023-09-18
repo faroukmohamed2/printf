@@ -39,9 +39,13 @@ int _printf(const char *format, ...)
 			{
 					_putint(va_arg(list, int));
 			}
+			else
+			{
+				_putchar(format[i + 1]);
+			}
 			continue;
 		}
-		if (format[i - 1] != '%')
+		if (format[i - 1] != '%' && format[i] != '%')
 			_putchar(format[i]);
 	}
 	va_end(list);
