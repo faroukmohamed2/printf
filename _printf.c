@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, count = 0;
+	int i = 0;
 	va_list list;
 	char *str;
 	
@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (; format[i] != '\0'; i++)
 	{
-		if (format[i] == '\\')
-			count++;
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
@@ -47,5 +45,5 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(list);
-	return (i - count);
+	return (i - 1);
 }
