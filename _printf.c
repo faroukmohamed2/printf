@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, count = 0;
 	va_list list;
 	char *str;
 	
@@ -20,6 +20,8 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	for (; format[i] != '\0'; i++)
 	{
+		if (format[i] == '\\')
+			count++;
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == '%')
@@ -35,7 +37,7 @@ int _printf(const char *format, ...)
 				str = va_arg(list, char *);
 				_putstring(str);
 			}
-			else if (format[i + 1] == 'd')
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
 			{
 				_putint(va_arg(list, int));
 			}
@@ -45,5 +47,5 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 	}
 	va_end(list);
-	return (i - 1);
+	return (i - count);
 }

@@ -6,5 +6,4 @@ void _putstring(char *c)
 	{
 		_putchar(c[j]);
 	}
-	_putchar('\0');
 }
