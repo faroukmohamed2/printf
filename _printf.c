@@ -23,7 +23,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			if (format[i + 1] == 'c')
+			{
 				_putchar(va_arg(list, int));
+			}
 			if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
@@ -32,13 +34,12 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == 'd')
 			{
 				_putint(va_arg(list, int));
-				va_end(list);
 			}
+			va_end(list);
 			continue;
 		}
 		if (format[i - 1] != '%')
 			_putchar(format[i]);
 	}
-	va_end(list);
 	return (i);
 }
