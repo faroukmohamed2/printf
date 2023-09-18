@@ -35,9 +35,9 @@ int _printf(const char *format, ...)
 				str = va_arg(list, char *);
 				_putstring(str);
 			}
-			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			else if (format[i + 1] == 'd' || format[i + 1] == 'i' || format[i + 1] == 'u')
 			{
-				_putint(va_arg(list, int));
+					_putint(va_arg(list, int));
 			}
 			continue;
 		}
