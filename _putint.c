@@ -1,7 +1,7 @@
 #include "main.h"
-void _putint(int x)
+int _putint(int x)
 {
-    int y, i, temp;
+    int y, i, temp, j = 0;
     char c;
 
     temp = x;
@@ -11,7 +11,7 @@ void _putint(int x)
         temp = -1 * temp;
         x = -1 * x;
     }
-    for (i = 1; x > 10; i *= 10)
+    for (i = 1; x > 1; i *= 10)
     {
         x = x / 10;
     }
@@ -22,6 +22,8 @@ void _putint(int x)
         c = y + '0';
         _putchar(c);
         i /= 10;
+	j++;
     }
+    return (j);
 }
 

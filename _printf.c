@@ -6,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, len = 0, len1 = 0, len2 = 0, count = 0;
+	int i = 0, len = 0, len1 = 0, len2 = 0, len3 = 0, count = 0;
 	va_list list;
 	char *str;
 	
@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i' || format[i + 1] == 'u')
 			{
-					_putint(va_arg(list, int));
+					len3 += _putint(va_arg(list, int));
 			}
 			else
 			{
@@ -47,6 +47,6 @@ int _printf(const char *format, ...)
 		len++;
 	}
 	va_end(list);
-	return (len + len1 + len2 - count);
+	return (len + len1 + len2 + len3 - count);
 
 }
