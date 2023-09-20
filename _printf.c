@@ -6,19 +6,14 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0;
+	int i = 0, len = 0, len1 = 0, len2 = 0, count = 0;
 	va_list list;
 	char *str;
 	
 	if (format[i] == '%' && !format[i + 1])
 		return (-1);
-	if (!format[i])
-	{
-		return (0);
-		exit(98);
-	}
 	va_start(list, format);
-	for (; format[i] != '\0'; i++)
+	for (; format[i] && format; i++)
 	{
 		if (format[i] == '%')
 		{
@@ -29,11 +24,12 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'c')
 			{
 				_putchar(va_arg(list, int));
+				len2++;
 			}
 			else if (format[i + 1] == 's')
 			{
 				str = va_arg(list, char *);
-				_putstring(str);
+				len1 += _putstring(str);
 			}
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i' || format[i + 1] == 'u')
 			{
@@ -43,11 +39,14 @@ int _printf(const char *format, ...)
 			{
 				_putchar(format[i + 1]);
 			}
+			count++;
 			continue;
 		}
 		if (format[i - 1] != '%' && format[i] != '%')
 			_putchar(format[i]);
+		len++;
 	}
 	va_end(list);
-	return (i - 1);
+	return (len + len1 + len2 - count);
+
 }
